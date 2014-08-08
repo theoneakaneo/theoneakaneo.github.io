@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Rekreatie Basket Bredene - competitie</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/colorbox.css">
+        <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+
+        <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet/less" type="text/css" href="less/styles.less" />
+        <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+        <script src="less/less-1.7.0.min.js"></script>
+        <!--        <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.0/less.min.js"></script>-->
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div id="wrapper">
+            <header class="clearfix">
+                <a href="index.html" class="logo" title="Home">Rekreatie Basket <span class="color1 uppercase">Bredene</span></a>
+                <a class="to_nav" href="#primary_nav">Menu</a>
+            </header>
+
+            <div id="maincontent">
+                <ul class="breadcrumbs clearfix" id="breadcrumbs-two">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html" class="current">Competitie</a></li>
+                </ul>
+
+                <article id="INDEX" class="onecolumn tabs">
+                    <section>
+                        <h2 id="competitietitle">Competitie</h2>
+                        <div class="kalendernav">
+                            <select id="kalender-filters-team">
+                                <option value="">--- teams ---</option>
+                                <option>wheelteam</option>
+                                <option>the reds</option>
+                                <option>nmt</option>
+                                <option>gb koekelare</option>
+                                <option>dewisan</option>
+                                <option>vintage</option>
+                            </select>
+                            <select id="kalender-filters-ronde">
+                                <option value="">--- rondes ---</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option value="6">Beker Finale</option>
+                            </select>
+                            <select id="kalender-filters-type">
+                                <option value="">--- competitie type ---</option>
+                                <option value="C">reguliere competitie</option>
+                                <option value="B">beker</option>
+                            </select>
+                        </div>
+                        <div id="kalender" class="clearfix"></div>
+                        <h2 id="rangschikkingtitle">Rangschikking</h2>
+                        <div id="rangschikking" class="clearfix"></div>
+                        <div id="kalender" class="clearfix"></div>
+                    </section>
+                    <span class="clearfix">
+                        <a href="#INDEX" class="gototop">top</a>
+                    </span>
+                </article>
+
+            </div>
+
+            <nav id="primary_nav">
+                <ul>
+                    <li><a href="competitie.html?action=kalender" id="navlinkkalender">Kalender</a></li>
+                    <li><a href="competitie.html?action=beker" id="navlinkbeker">Beker</a></li>
+                    <li><a href="competitie.html?action=rangschikking">Rangschikking</a></li>
+                    <li><a href="nieuws.html">Nieuws</a></li>
+                    <li><a href="teams.html">Teams</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="top"><a href="#wrapper">Top</a></li>
+                </ul>
+            </nav><!--end primary_nav-->
+
+            <footer>
+                <nav id="secundary_nav">
+                    <a href="historiek.html">Historiek</a>
+                    <a href="locaties.html">Locaties</a><!--google maps ost & bre-->
+                    <a href="reglement.html">Reglement</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="sitemap.html">Sitemap</a>
+                </nav>
+                <span class="copy">&copy; 2013 TheOne</span>
+            </footer>
+        </div><!--end wrapper-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.0.min.js"><\/script>');</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/libs/js-url-1.8.4/js-url.min.js"></script>
+
+        <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+        <script  type="text/javascript">
+            if (typeof jQuery.fn.dataTable === 'undefined')
+                document.write(unescape("%3Cscript src='js/libs/datatables-1.9.4/jquery.dataTables.min.js'" + "type='text/javascript'%3E%3C/script%3E"));</script>
+        <script src="js/libs/datatables-fixedheader-2.0.6/FixedHeader.min.js"></script>
+        <script src="js/libs/datatables-FixedColumns/FixedColumns.min.js"></script>
+
+        <script src="js/libs/highcharts-2.3.5/highcharts.js"></script>
+
+        <script src="js/main.js"></script>
+
+        <script type="text/javascript">
+            jQuery.noConflict();
+            (function($) {
+                //data voor kalender, beker, rangschikking, ev. charts
+                var aDataSet = [
+                    {"ronde": "1", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-9-2", "uur": "20u00", "home": "wheelteam", "home score": "70", "away": "the reds", "away score": "89"},
+                    {"ronde": "1", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-9-2", "uur": "21u15", "home": "vintage", "home score": "52", "away": "gb koekelare", "away score": "44"},
+                    {"ronde": "1", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2013-9-4", "uur": "21u00", "home": "nmt", "home score": "31", "away": "dewisan", "away score": "60"},
+                    {"ronde": "1", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-9-9", "uur": "20u00", "home": "wheelteam", "home score": "24", "away": "gb koekelare", "away score": "76"},
+                    {"ronde": "1", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-9-9", "uur": "21u15", "home": "dewisan", "home score": "78", "away": "vintage", "away score": "71"},
+                    {"ronde": "1", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2013-9-11", "uur": "21u00", "home": "the reds", "home score": "80", "away": "nmt", "away score": "51"},
+                    {"ronde": "1", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-9-16", "uur": "20u00", "home": "wheelteam", "home score": "58", "away": "dewisan", "away score": "83"},
+                    {"ronde": "1", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-9-16", "uur": "21u15", "home": "the reds", "home score": "89", "away": "gb koekelare", "away score": "61"},
+                    {"ronde": "1", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2013-9-18", "uur": "21u00", "home": "nmt", "home score": "20", "away": "vintage", "away score": "0"},
+                    {"ronde": "1", "beker": "B", "weekdag": "ma", "locatie": "bredene", "datum": "2013-9-23", "uur": "20u00", "home": "nmt", "home score": "38", "away": "dewisan", "away score": "87"},
+                    {"ronde": "1", "beker": "B", "weekdag": "ma", "locatie": "bredene", "datum": "2013-9-23", "uur": "21u15", "home": "the reds", "home score": "68", "away": "gb koekelare", "away score": "54"},
+                    {"ronde": "1", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-9-30", "uur": "20u00", "home": "the reds", "home score": "75", "away": "vintage", "away score": "61"},
+                    {"ronde": "1", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-9-30", "uur": "21u15", "home": "gb koekelare", "home score": "46", "away": "dewisan", "away score": "72"},
+                    {"ronde": "1", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2013-10-2", "uur": "21u00", "home": "wheelteam", "home score": "", "away": "nmt", "away score": ""},
+                    {"ronde": "1", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-10-7", "uur": "20u00", "home": "vintage", "home score": "", "away": "wheelteam", "away score": ""},
+                    {"ronde": "1", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-10-7", "uur": "21u15", "home": "dewisan", "home score": "", "away": "the reds", "away score": ""},
+                    {"ronde": "1", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2013-10-9", "uur": "21u00", "home": "nmt", "home score": "", "away": "gb koekelare", "away score": ""},
+                    {"ronde": "2", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-10-14", "uur": "20u00", "home": "gb koekelare", "home score": "-", "away": "vintage", "away score": "-"},
+                    {"ronde": "2", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-10-14", "uur": "21u15", "home": "the reds", "home score": "-", "away": "wheelteam", "away score": "-"},
+                    {"ronde": "2", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2013-10-16", "uur": "21u00", "home": "dewisan", "home score": "-", "away": "nmt", "away score": "-"},
+                    {"ronde": "2", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-10-21", "uur": "20u00", "home": "vintage", "home score": "-", "away": "dewisan", "away score": "-"},
+                    {"ronde": "2", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-10-21", "uur": "21u15", "home": "gb koekelare", "home score": "-", "away": "wheelteam", "away score": "-"},
+                    {"ronde": "2", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2013-10-23", "uur": "21u00", "home": "nmt", "home score": "-", "away": "the reds", "away score": "-"},
+                    {"ronde": "2", "beker": "B", "weekdag": "ma", "locatie": "bredene", "datum": "2013-11-4", "uur": "20u00", "home": "", "home score": "", "away": "", "away score": ""},
+                    {"ronde": "2", "beker": "B", "weekdag": "ma", "locatie": "bredene", "datum": "2013-11-4", "uur": "21u15", "home": "", "home score": "", "away": "", "away score": ""},
+                    {"ronde": "2", "beker": "B", "weekdag": "wo", "locatie": "ost", "datum": "2013-11-6", "uur": "21u00", "home": "", "home score": "-", "away": "", "away score": "-"},
+                    {"ronde": "2", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-11-18", "uur": "20u00", "home": "gb koekelare", "home score": "-", "away": "the reds", "away score": "-"},
+                    {"ronde": "2", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-11-18", "uur": "21u15", "home": "dewisan", "home score": "-", "away": "wheelteam", "away score": "-"},
+                    {"ronde": "2", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2013-11-20", "uur": "21u00", "home": "vintage", "home score": "-", "away": "nmt", "away score": "-"},
+                    {"ronde": "2", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-11-25", "uur": "20u00", "home": "dewisan", "home score": "-", "away": "gb koekelare", "away score": "-"},
+                    {"ronde": "2", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-11-25", "uur": "21u15", "home": "vintage", "home score": "-", "away": "the reds", "away score": "-"},
+                    {"ronde": "2", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2013-11-27", "uur": "21u00", "home": "nmt", "home score": "-", "away": "wheelteam", "away score": "-"},
+                    {"ronde": "2", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-12-2", "uur": "20u00", "home": "the reds", "home score": "-", "away": "dewisan", "away score": "-"},
+                    {"ronde": "2", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-12-2", "uur": "21u15", "home": "wheelteam", "home score": "-", "away": "vintage", "away score": "-"},
+                    {"ronde": "2", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2013-12-4", "uur": "21u00", "home": "gb koekelare", "home score": "-", "away": "nmt", "away score": "-"},
+                    {"ronde": "3", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-12-9", "uur": "20u00", "home": "wheelteam", "home score": "", "away": "the reds", "away score": ""},
+                    {"ronde": "3", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-12-9", "uur": "21u15", "home": "vintage", "home score": "", "away": "gb koekelare", "away score": ""},
+                    {"ronde": "3", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2013-12-11", "uur": "21u00", "home": "nmt", "home score": "", "away": "dewisan", "away score": ""},
+                    {"ronde": "3", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-12-16", "uur": "20u00", "home": "wheelteam", "home score": "", "away": "gb koekelare", "away score": ""},
+                    {"ronde": "3", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2013-12-16", "uur": "21u15", "home": "dewisan", "home score": "", "away": "vintage", "away score": ""},
+                    {"ronde": "3", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2013-12-18", "uur": "21u00", "home": "the reds", "home score": "", "away": "nmt", "away score": ""},
+                    {"ronde": "3", "beker": "B", "weekdag": "ma", "locatie": "bredene", "datum": "2014-1-6", "uur": "20u00", "home": "", "home score": "", "away": "", "away score": ""},
+                    {"ronde": "3", "beker": "B", "weekdag": "ma", "locatie": "bredene", "datum": "2014-1-6", "uur": "21u15", "home": "", "home score": "", "away": "", "away score": ""},
+                    {"ronde": "3", "beker": "B", "weekdag": "wo", "locatie": "ost", "datum": "2014-1-8", "uur": "21u00", "home": "", "home score": "", "away": "", "away score": ""},
+                    {"ronde": "3", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-1-13", "uur": "20u00", "home": "the reds", "home score": "", "away": "vintage", "away score": ""},
+                    {"ronde": "3", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-1-13", "uur": "21u15", "home": "gb koekelare", "home score": "", "away": "dewisan", "away score": ""},
+                    {"ronde": "3", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2014-1-18", "uur": "21u00", "home": "wheelteam", "home score": "", "away": "nmt", "away score": ""},
+                    {"ronde": "3", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-1-20", "uur": "20u00", "home": "vintage", "home score": "", "away": "wheelteam", "away score": ""},
+                    {"ronde": "3", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-1-20", "uur": "21u15", "home": "dewisan", "home score": "", "away": "the reds", "away score": ""},
+                    {"ronde": "3", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2014-1-22", "uur": "21u00", "home": "nmt", "home score": "", "away": "gb koekelare", "away score": ""},
+                    {"ronde": "4", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-1-27", "uur": "20u00", "home": "gb koekelare", "home score": "-", "away": "vintage", "away score": "-"},
+                    {"ronde": "4", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-1-27", "uur": "21u15", "home": "the reds", "home score": "-", "away": "wheelteam", "away score": "-"},
+                    {"ronde": "4", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2014-1-29", "uur": "21u00", "home": "dewisan", "home score": "", "away": "nmt", "away score": ""},
+                    {"ronde": "4", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-2-3", "uur": "20u00", "home": "vintage", "home score": "-", "away": "dewisan", "away score": "-"},
+                    {"ronde": "4", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-2-3", "uur": "21u15", "home": "gb koekelare", "home score": "-", "away": "wheelteam", "away score": "-"},
+                    {"ronde": "4", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2014-2-5", "uur": "21u00", "home": "nmt", "home score": "-", "away": "the reds", "away score": "-"},
+                    {"ronde": "4", "beker": "B", "weekdag": "ma", "locatie": "bredene", "datum": "2014-2-10", "uur": "20u00", "home": "", "home score": "", "away": "", "away score": ""},
+                    {"ronde": "4", "beker": "B", "weekdag": "ma", "locatie": "bredene", "datum": "2014-2-10", "uur": "21u15", "home": "", "home score": "", "away": "", "away score": ""},
+                    {"ronde": "4", "beker": "B", "weekdag": "wo", "locatie": "ost", "datum": "2014-2-12", "uur": "21u00", "home": "", "home score": "", "away": "", "away score": ""},
+                    {"ronde": "4", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-2-17", "uur": "20u00", "home": "gb koekelare", "home score": "-", "away": "the reds", "away score": "-"},
+                    {"ronde": "4", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-2-17", "uur": "21u15", "home": "dewisan", "home score": "-", "away": "wheelteam", "away score": "-"},
+                    {"ronde": "4", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2014-2-19", "uur": "21u00", "home": "vintage", "home score": "-", "away": "nmt", "away score": "-"},
+                    {"ronde": "4", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-2-24", "uur": "20u00", "home": "dewisan", "home score": "-", "away": "gb koekelare", "away score": "-"},
+                    {"ronde": "4", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-2-24", "uur": "21u15", "home": "vintage", "home score": "-", "away": "the reds", "away score": "-"},
+                    {"ronde": "4", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2014-2-26", "uur": "21u00", "home": "nmt", "home score": "-", "away": "wheelteam", "away score": "-"},
+                    {"ronde": "4", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-3-10", "uur": "20u00", "home": "the reds", "home score": "-", "away": "dewisan", "away score": "-"},
+                    {"ronde": "4", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-3-10", "uur": "21u15", "home": "wheelteam", "home score": "-", "away": "vintage", "away score": "-"},
+                    {"ronde": "4", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2014-3-12", "uur": "21u00", "home": "gb koekelare", "home score": "-", "away": "nmt", "away score": "-"},
+                    {"ronde": "5", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-3-17", "uur": "20u00", "home": "wheelteam", "home score": "", "away": "the reds", "away score": ""},
+                    {"ronde": "5", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-3-17", "uur": "21u15", "home": "vintage", "home score": "", "away": "gb koekelare", "away score": ""},
+                    {"ronde": "5", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2014-3-19", "uur": "21u00", "home": "nmt", "home score": "", "away": "dewisan", "away score": ""},
+                    {"ronde": "5", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-3-24", "uur": "20u00", "home": "wheelteam", "home score": "", "away": "gb koekelare", "away score": ""},
+                    {"ronde": "5", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-3-24", "uur": "21u15", "home": "dewisan", "home score": "", "away": "vintage", "away score": ""},
+                    {"ronde": "5", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2014-3-26", "uur": "21u00", "home": "the reds", "home score": "", "away": "nmt", "away score": ""},
+                    {"ronde": "5", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-3-31", "uur": "20u00", "home": "wheelteam", "home score": "", "away": "dewisan", "away score": ""},
+                    {"ronde": "5", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-3-31", "uur": "21u15", "home": "the reds", "home score": "", "away": "gb koekelare", "away score": ""},
+                    {"ronde": "5", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2014-4-2", "uur": "21u00", "home": "nmt", "home score": "", "away": "vintage", "away score": ""},
+                    {"ronde": "5", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-4-28", "uur": "20u00", "home": "the reds", "home score": "", "away": "vintage", "away score": ""},
+                    {"ronde": "5", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-4-28", "uur": "21u15", "home": "gb koekelare", "home score": "", "away": "dewisan", "away score": ""},
+                    {"ronde": "5", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2014-4-30", "uur": "21u00", "home": "wheelteam", "home score": "", "away": "nmt", "away score": ""},
+                    {"ronde": "5", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-5-5", "uur": "20u00", "home": "vintage", "home score": "", "away": "wheelteam", "away score": ""},
+                    {"ronde": "5", "beker": "C", "weekdag": "ma", "locatie": "bredene", "datum": "2014-5-5", "uur": "21u15", "home": "dewisan", "home score": "", "away": "the reds", "away score": ""},
+                    {"ronde": "5", "beker": "C", "weekdag": "wo", "locatie": "ost", "datum": "2014-5-7", "uur": "21u00", "home": "nmt", "home score": "", "away": "gb koekelare", "away score": ""},
+                    {"ronde": "5", "beker": "B", "weekdag": "ma", "locatie": "bredene", "datum": "2014-5-12", "uur": "20u00", "home": "", "home score": "", "away": "", "away score": ""},
+                    {"ronde": "5", "beker": "B", "weekdag": "ma", "locatie": "bredene", "datum": "2014-5-12", "uur": "21u15", "home": "", "home score": "", "away": "", "away score": ""},
+                    {"ronde": "5", "beker": "B", "weekdag": "wo", "locatie": "ost", "datum": "2014-5-14", "uur": "21u00", "home": "", "home score": "", "away": "", "away score": ""},
+                    {"ronde": "6", "beker": "B", "weekdag": "", "locatie": "", "datum": "", "uur": "16u00", "home": "", "home score": "", "away": "", "away score": ""},
+                    {"ronde": "6", "beker": "B", "weekdag": "", "locatie": "", "datum": "", "uur": "16u00", "home": "", "home score": "", "away": "", "away score": ""},
+                    {"ronde": "6", "beker": "B", "weekdag": "", "locatie": "", "datum": "", "uur": "17u15", "home": "", "home score": "", "away": "", "away score": ""},
+                    {"ronde": "6", "beker": "B", "weekdag": "", "locatie": "", "datum": "", "uur": "20u00 ", "home": "", "home score": "", "away": "", "away score": ""}
+                ];
+
+                jQuery(document).ready(function($)
+                {
+                    var sGetUrlActionValue = $.url('?action').toLowerCase().replace(/ /g, '');
+                    switch (sGetUrlActionValue) {
+                        case 'kalender':
+                            initDataTables();
+                            $('a#navlink' + sGetUrlActionValue, '#primary_nav').addClass('active');
+                            break;
+                        case 'beker':
+                            initDataTables();
+                            $('a#navlink' + sGetUrlActionValue, '#primary_nav').addClass('active');
+                            $('#kalender-filters-type').val('B').change();
+                            break;
+                        case 'rangschikking':
+                            $('#competitietitle').hide();
+                            $('.kalendernav').hide();
+                            initRangschikking();
+                            break;
+                    }
+                });
+                function initDataTables() {
+                    $('#kalender').html('<table cellpadding="0" cellspacing="0" border="0" class="display" id="kalendertable" width="100%"></table>');
+                    var oTable;
+                    oTable = $('#kalendertable').dataTable(
+                            {
+                                "aLengthMenu": [[15, 30, 50, -1], [15, 30, 50, "All"]],
+                                "iDisplayLength": 15,
+                                "sPaginationType": "full_numbers",
+                                "aaData": aDataSet,
+                                "aoColumns": [
+                                    {"sTitle": "ronde", "mData": "ronde", "bSearchable": true, "bVisible": false},
+                                    {"sTitle": "B/C", "mData": "beker"},
+                                    {"sTitle": "locatie", "mData": "locatie"},
+                                    {"sTitle": "", "mData": "weekdag"},
+                                    {"sTitle": "datum", "mData": "datum", "sType": "date"},
+                                    {"sTitle": "uur", "mData": "uur"},
+                                    {"sTitle": "home", "mData": "home"},
+                                    {"sTitle": "#", "mData": "home score"},
+                                    {"sTitle": "away", "mData": "away"},
+                                    {"sTitle": "#", "mData": "away score"}
+                                ],
+                                "aaSorting": [[0, "asc"], [4, "asc"]],
+                                "sScrollX": "100%",
+                                "sScrollXInner": "100%",
+                                "bScrollCollapse": true
+                            }
+                    );
+
+                    $('#kalender-filters-team').change(function() {
+                        var sSelectedValue = $(this).val();
+                        oTable.fnFilter(sSelectedValue);
+                    });
+                    $('#kalender-filters-ronde').change(function() {
+                        var sSelectedValue = $(this).val();
+                        oTable.fnFilter(sSelectedValue, 0, false);
+                    });
+                    $('#kalender-filters-type').change(function() {
+                        var sSelectedValue = $(this).val();
+                        oTable.fnFilter(sSelectedValue, 1, false);
+                    });
+                    //focus and filter based on url competitie/beker
+                    var now = new Date();
+                    var ronde2start = new Date(2013, 9, 13);
+                    var ronde3start = new Date(2013, 11, 8);
+                    var ronde4start = new Date(2014, 0, 16);
+                    var ronde5start = new Date(2014, 2, 16);
+                    var finalestart = new Date(2014, 4, 15);
+                    var sSetRonde = -1;
+                    if (now < ronde2start) {
+                        sSetRonde = 1;
+                    } else {
+                        if (now < ronde3start) {
+                            sSetRonde = 2;
+                        } else {
+                            if (now < ronde4start) {
+                                sSetRonde = 3;
+                            } else {
+                                if (now < ronde5start) {
+                                    sSetRonde = 4;
+                                } else {
+                                    if (now < finalestart) {
+                                        sSetRonde = 5;
+                                    } else {
+                                        sSetRonde = 6;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (sSetRonde != -1) {
+                        $('#kalender-filters-ronde').val(sSetRonde).change();
+                    }
+                    $('#rangschikkingtitle').hide();
+                }
+                //calculate rangschikking
+                function initRangschikking() {
+                    //home > away -> add win, loss, draw to each team
+                    //home & away score -> add to correct team for sum per team
+                    var data = {};
+                    //get real data
+                    $.each(aDataSet, function(index) {
+                        if (aDataSet[index].beker != 'B') {
+                            sHome = aDataSet[index].home;
+                            sHomeScore = parseInt(aDataSet[index]['home score'], 10);
+                            sAway = aDataSet[index].away;
+                            sAwayScore = parseInt(aDataSet[index]['away score'], 10);
+                            data[sHome + 'for'] = (data[sHome + 'for'] || 0) + (sHomeScore || 0);
+                            data[sHome + 'against'] = (data[sHome + 'against'] || 0) + (sAwayScore || 0);
+                            data[sAway + 'for'] = (data[sAway + 'for'] || 0) + (sAwayScore || 0);
+                            data[sAway + 'against'] = (data[sAway + 'against'] || 0) + (sHomeScore || 0);
+                            if ((sHomeScore || 0) !== 0 || (sAwayScore || 0) !== 0) {
+                                data[sHome + 'games'] = parseInt((data[sHome + 'games'] || 0), 10) + 1;
+                                data[sAway + 'games'] = parseInt((data[sAway + 'games'] || 0), 10) + 1;
+                                if (sHomeScore > sAwayScore) {
+                                    data[sHome + 'win'] = parseInt((data[sHome + 'win'] || 0), 10) + 1;
+                                    if (sHomeScore == 20 && sAwayScore == 0) {
+                                        data[sAway + 'forfait'] = parseInt((data[sAway + 'forfait'] || 0), 10) + 1;
+                                    } else {
+                                        data[sAway + 'loss'] = parseInt((data[sAway + 'loss'] || 0), 10) + 1;
+                                    }
+                                } else {
+                                    if (sHomeScore < sAwayScore) {
+                                        if (sHomeScore == 0 && sAwayScore == 20) {
+                                            data[sHome + 'forfait'] = parseInt((data[sHome + 'forfait'] || 0), 10) + 1;
+                                        } else {
+                                            data[sHome + 'loss'] = parseInt((data[sHome + 'loss'] || 0), 10) + 1;
+                                        }
+                                        data[sAway + 'win'] = parseInt((data[sAway + 'win'] || 0), 10) + 1;
+                                    } else { //equal to
+                                        data[sAway + 'draw'] = parseInt((data[sAway + 'draw'] || 0), 10) + 1;
+                                        data[sHome + 'draw'] = parseInt((data[sHome + 'draw'] || 0), 10) + 1;
+                                    }
+                                }
+                            } else {
+                                data[sHome + 'for'] = (data[sHome + 'for'] || 0);
+                                data[sHome + 'against'] = (data[sHome + 'against'] || 0);
+                                data[sHome + 'win'] = (data[sHome + 'win'] || 0);
+                                data[sHome + 'loss'] = (data[sHome + 'loss'] || 0);
+                                data[sHome + 'draw'] = (data[sHome + 'draw'] || 0);
+                                data[sHome + 'forfait'] = (data[sHome + 'forfait'] || 0);
+                                data[sHome + 'games'] = (data[sHome + 'games'] || 0);
+                            }
+                        }
+                    });
+                    var dataRangschikking = [
+                        {"stand": "", "ploeg": "wheelteam", "punten": "", "wedstrijden": "", "gewonnen": "", "verloren": "", "gelijk": "", "forfait": "", "voor": "", "tegen": "", "saldo": ""},
+                        {"stand": "", "ploeg": "vintage", "punten": "", "wedstrijden": "", "gewonnen": "", "verloren": "", "gelijk": "", "forfait": "", "voor": "", "tegen": "", "saldo": ""},
+                        {"stand": "", "ploeg": "nmt", "punten": "", "wedstrijden": "", "gewonnen": "", "verloren": "", "gelijk": "", "forfait": "", "voor": "", "tegen": "", "saldo": ""},
+                        {"stand": "", "ploeg": "gb koekelare", "punten": "", "wedstrijden": "", "gewonnen": "", "verloren": "", "gelijk": "", "forfait": "", "voor": "", "tegen": "", "saldo": ""},
+                        {"stand": "", "ploeg": "dewisan", "punten": "", "wedstrijden": "", "gewonnen": "", "verloren": "", "gelijk": "", "forfait": "", "voor": "", "tegen": "", "saldo": ""},
+                        {"stand": "", "ploeg": "the reds", "punten": "", "wedstrijden": "", "gewonnen": "", "verloren": "", "gelijk": "", "forfait": "", "voor": "", "tegen": "", "saldo": ""}
+                    ];
+                    $.each(dataRangschikking, function(index, objPloeg) {
+                        objPloeg.wedstrijden = data[objPloeg.ploeg + 'games'];
+                        objPloeg.gewonnen = data[objPloeg.ploeg + 'win'];
+                        objPloeg.verloren = data[objPloeg.ploeg + 'loss'];
+                        objPloeg.gelijk = data[objPloeg.ploeg + 'draw'];
+                        objPloeg.forfait = data[objPloeg.ploeg + 'forfait'];
+                        objPloeg.voor = data[objPloeg.ploeg + 'for'];
+                        objPloeg.tegen = data[objPloeg.ploeg + 'against'];
+                        objPloeg.saldo = objPloeg.voor - objPloeg.tegen;
+                        objPloeg.punten = (objPloeg.gewonnen * 3) + (objPloeg.gelijk * 2);
+                    });
+
+                    function sortResults(prop, asc, prop2, asc2, prop3, asc3) {
+                        dataRangschikking = dataRangschikking.sort(function(a, b) {
+                            if (asc) {
+//                                return (a[prop] > b[prop]) ? 1 : ((a[prop] < b[prop]) ? -1 : 0);
+                                if (a[prop] > b[prop]) {
+                                    return 1;
+                                } else {
+                                    if (a[prop] < b[prop]) {
+                                        return -1;
+                                    } else {
+                                        //prop 2
+                                        if (asc2) {
+                                            if (a[prop2] > b[prop2]) {
+                                                return 1;
+                                            } else {
+                                                if (a[prop2] < b[prop2]) {
+                                                    return -1;
+                                                } else {
+                                                    //prop 3
+                                                    if (asc3) {
+                                                        if (a[prop3] > b[prop3]) {
+                                                            return 1;
+                                                        } else {
+                                                            if (a[prop3] < b[prop3]) {
+                                                                return -1;
+                                                            } else {
+                                                                return 0;
+                                                            }
+                                                        }
+                                                    } else {
+                                                        if (a[prop3] < b[prop3]) {
+                                                            return 1;
+                                                        } else {
+                                                            if (a[prop3] > b[prop3]) {
+                                                                return -1;
+                                                            } else {
+                                                                return 0;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        } else {
+                                            if (a[prop2] < b[prop2]) {
+                                                return 1;
+                                            } else {
+                                                if (a[prop2] > b[prop2]) {
+                                                    return -1;
+                                                } else {
+                                                    //prop 3
+                                                    if (asc3) {
+                                                        if (a[prop3] > b[prop3]) {
+                                                            return 1;
+                                                        } else {
+                                                            if (a[prop3] < b[prop3]) {
+                                                                return -1;
+                                                            } else {
+                                                                return 0;
+                                                            }
+                                                        }
+                                                    } else {
+                                                        if (a[prop3] < b[prop3]) {
+                                                            return 1;
+                                                        } else {
+                                                            if (a[prop3] > b[prop3]) {
+                                                                return -1;
+                                                            } else {
+                                                                return 0;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                /*
+                                 * De eerst geklasseerde op het einde van de competitie is kampioen.
+                                 Bij gelijke stand van 2 of meer ploegen is de ploeg kampioen 
+                                 die het meeste wedstrijden heeft gewonnen. 
+                                 Is deze nog gelijk dan wordt gekeken naar de ploeg met het hoogste doelpuntensaldo.
+                                 Is deze ook nog gelijk is de ploeg kampioen die het meest heeft gescoord.
+                                 */
+                            } else {
+                                if (a[prop] < b[prop]) {
+                                    return 1;
+                                } else {
+                                    if (a[prop] > b[prop]) {
+                                        return -1;
+                                    } else {
+                                        //prop 2
+                                        if (asc2) {
+                                            if (a[prop2] > b[prop2]) {
+                                                return 1;
+                                            } else {
+                                                if (a[prop2] < b[prop2]) {
+                                                    return -1;
+                                                } else {
+                                                    //prop 3
+                                                    if (asc3) {
+                                                        if (a[prop3] > b[prop3]) {
+                                                            return 1;
+                                                        } else {
+                                                            if (a[prop3] < b[prop3]) {
+                                                                return -1;
+                                                            } else {
+                                                                return 0;
+                                                            }
+                                                        }
+                                                    } else {
+                                                        if (a[prop3] < b[prop3]) {
+                                                            return 1;
+                                                        } else {
+                                                            if (a[prop3] > b[prop3]) {
+                                                                return -1;
+                                                            } else {
+                                                                return 0;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        } else {
+                                            if (a[prop2] < b[prop2]) {
+                                                return 1;
+                                            } else {
+                                                if (a[prop2] > b[prop2]) {
+                                                    return -1;
+                                                } else {
+                                                    //prop 3
+                                                    if (asc3) {
+                                                        if (a[prop3] > b[prop3]) {
+                                                            return 1;
+                                                        } else {
+                                                            if (a[prop3] < b[prop3]) {
+                                                                return -1;
+                                                            } else {
+                                                                return 0;
+                                                            }
+                                                        }
+                                                    } else {
+                                                        if (a[prop3] < b[prop3]) {
+                                                            return 1;
+                                                        } else {
+                                                            if (a[prop3] > b[prop3]) {
+                                                                return -1;
+                                                            } else {
+                                                                return 0;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    sortResults('punten', false, 'gewonnen', false, 'voor', false);
+                    //stand invullen gesorteerd resultaat
+                    for (var i = 0; i < dataRangschikking.length; i++) {
+                        dataRangschikking[i].stand = i + 1;
+                    }
+
+//                    $('#rangschikking').html(JSON.stringify(dataRangschikking));
+
+                    //show rangschikking tabel
+                    $('#rangschikking').html('<table cellpadding="0" cellspacing="0" border="0" class="display" id="rangschikkingtable" width="100%"></table>');
+                    var oTable = $('#rangschikkingtable').dataTable({
+                        "aLengthMenu": [[15, 30, 50, -1], [15, 30, 50, "All"]],
+                        "iDisplayLength": 15,
+                        "sPaginationType": "full_numbers",
+                        "aaData": dataRangschikking,
+                        "aoColumns": [
+                            {"sTitle": "stand", "mData": "stand"},
+                            {"sTitle": "ploeg", "mData": "ploeg"},
+                            {"sTitle": "punten", "mData": "punten"},
+                            {"sTitle": "wedstrijden", "mData": "wedstrijden"},
+                            {"sTitle": "gewonnen", "mData": "gewonnen"},
+                            {"sTitle": "verloren", "mData": "verloren"},
+                            {"sTitle": "gelijk", "mData": "gelijk"},
+                            {"sTitle": "forfait", "mData": "forfait"},
+                            {"sTitle": "voor", "mData": "voor"},
+                            {"sTitle": "tegen", "mData": "tegen"},
+                            {"sTitle": "saldo", "mData": "saldo"}
+                        ],
+                        "aaSorting": [[0, "asc"]],
+                        "sScrollX": "100%",
+                        "sScrollXInner": "100%",
+                        "bScrollCollapse": true
+                    });
+                }
+            })(jQuery);</script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+            (function(d, t) {
+                var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+                g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+                s.parentNode.insertBefore(g, s)
+            }(document, 'script'));
+        </script>
+    </body>
+</html>
