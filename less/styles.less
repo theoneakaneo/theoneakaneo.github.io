@@ -46,13 +46,21 @@
 .underline() {
     text-decoration: underline;
 }
-
+.full_height() {
+    height: 100%;
+}
+html , body {
+    .full_height;
+}
 #wrapper
 {
     background: @wrapperBackground;
     background-repeat: no-repeat;
     background-position: right bottom;
+    min-height:100%;
 }
+
+
 
 a {
     color:red;
